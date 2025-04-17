@@ -1,0 +1,23 @@
+<script>
+    let date=new Date();
+    let name="Vinay";
+    let hour=date.getHours();
+    console.log(hour);
+    if(hour>=6&&hour<=12){
+        console.log(`Good morning ${name}`);
+    }
+    else if(hour>=13&&hour<=17){
+        console.log(`Good afternoon ${name}!`);
+    }
+    else{
+        console.log(`Good night ${name}!`);
+    }
+    let age=3;
+    let isHoliday=true;
+    if((age<=6 || age>65)&& isHoliday){
+        console.log(`Discount`);
+    }
+    else{
+        console.log(`No Discount`);
+    }
+</script>

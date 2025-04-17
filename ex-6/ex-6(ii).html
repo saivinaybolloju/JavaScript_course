@@ -1,0 +1,19 @@
+<script>
+    let rannum=Math.random();
+    let res='';
+    let guess='heads';
+    console.log(rannum);
+    (rannum<0.5?res='heads':res='tails');
+    // if(rannum<0.5){
+    //     console.log(`heads`);
+    //     res='heads';
+    // }else{
+    //     console.log(`tails`);
+    //     res='tails';
+    // }
+    if(guess==res){
+        console.log(`You win!`);
+    }else{
+        console.log(`You lose!`);
+    }
+</script>
