@@ -1,0 +1,25 @@
+<style>
+    .highlight{
+        background-color: yellow;
+        color: blue;
+        font-size: 20;
+        font-weight: bold;
+    }
+</style>
+<ul>
+    <li>Mango</li>
+    <li>Orange</li>
+    <li>Grapes</li>
+    <li>Banana</li>
+    <li>Apple</li>
+</ul>
+<script>
+    let ul=document.querySelector('ul');
+    for(let li of ul.children){
+        console.log(li.innerText);
+    }
+    for(let i=0;i<ul.children.length;i+=2){
+        ul.children[i].classList.add('highlight');
+    }
+    console.log(ul.children.length);
+</script>
