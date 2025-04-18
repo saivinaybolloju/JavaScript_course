@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Program</title>
+</head>
+<body>
+    <div style="display: flex;align-items: center;justify-content: center;height: 100vh;flex-direction: column;">
+        <div>
+            <h1 class="counter">0</h1>
+        </div>
+        <div>
+            <button class="increment">increment</button>
+            <button class="decrement">decrement</button> 
+        </div>
+    </div>
+    
+    
+    
+<script>
+    let currcount=0;
+   const displaycount=document.querySelector('.counter');
+   const increment=document.querySelector('.increment');
+   const decrement=document.querySelector('.decrement');
+
+    increment.addEventListener("click",()=>{
+        currcount++;
+        displaycount.textContent=currcount;
+    });
+    
+    decrement.addEventListener("click",()=>{
+        if(currcount>0){
+            currcount--;
+            displaycount.textContent=currcount;
+        }
+    });
+</script>
+</body>
+</html>

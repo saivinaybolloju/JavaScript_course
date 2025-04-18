@@ -1,0 +1,35 @@
+<html>
+<body>
+<div id="container">
+  <h1>My List</h1>
+  <ul id="myList">
+    <li class="item">Item 1</li>
+    <li class="item">Item 2</li>
+    <li class="item">Item 3</li>
+  </ul>
+  <button id="addButton">Add Item</button>
+</div>
+</body>
+<script>
+const list=document.getElementById("myList");
+const addBtn=document.getElementById("addButton");
+
+  function remove(event){
+      event.target.remove();
+  };
+
+  addBtn.addEventListener("click",function(){
+    const newItem=document.createElement('li');
+    newItem.classList.add("item");
+    newItem.textContent='New Item';
+    list.appendChild(newItem);
+    newItem.addEventListener("click",remove);
+  });
+
+const deleting=document.querySelectorAll('.item');
+deleting.forEach(function(item){
+  item.addEventListener("click",remove);
+})
+
+</script>
+</html>
