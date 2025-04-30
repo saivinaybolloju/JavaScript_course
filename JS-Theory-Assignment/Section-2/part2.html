@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+           
+            const userCorrectedTraditional = {
+                name:'Alice',
+                greetDelayed: function() {
+                    const self = this; 
+                    setTimeout(function() {
+                        console.log(`Hello, ${self.name}!`);
+                    }, 1000);
+                }
+            };
+            userCorrectedTraditional.greetDelayed();
+
+            const userCorrectedArrow = {
+            name:'Bob',
+            greetDelayed: function() {
+            setTimeout(() => { 
+            console.log(`Hello, ${this.name}!`);
+
+            }, 1000);
+            }
+            };
+            userCorrectedArrow.greetDelayed();
+
+            const student = {
+                firstname:"Vinay",
+                lastname:'Bolloju',
+                studentDetails: function() {
+                    setTimeout( ()=> {
+                    console.log(`Vinay's last name is: ${this.lastname}`);
+                    },1000);
+                }
+            };
+            student.studentDetails();
+
+
+
+        </script>
+    </body>
+</html>

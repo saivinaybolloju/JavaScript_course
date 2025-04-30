@@ -1,0 +1,15 @@
+<script>
+    function createCounter() {
+    let c = 0;
+    function incrementCounter(){
+        return ++c;
+    };
+    
+    return incrementCounter;
+    }
+    const counterA = createCounter();
+    console.log(counterA()); // Expected: 1, Actual: ?
+    console.log(counterA()); // Expected: 2, Actual: ?
+    const counterB = createCounter();
+    console.log(counterB()); //Expected: 1 (independent counter), Actual: ?
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            function setupCounter(initialValue) {
+                let count = initialValue;
+                function increment() {
+                    count++;
+                    return count;
+                }
+                function decrement() {
+                    count--;
+                    return count;
+                }
+                return {
+                    increment: increment,
+                    decrement: decrement
+                };
+                }
+                const counterOne = setupCounter(5);
+                console.log(counterOne.increment());
+                console.log(counterOne.increment());
+                const counterTwo = setupCounter(10);
+                console.log(counterTwo.decrement());
+                
+                console.log(counterOne.decrement());
+
+            //Task 2
+            function createGreeting(greeting){
+                return function(name){
+                    return `${greeting}, ${name}`;
+                }
+            }
+            const sayHello = createGreeting('Hello');
+            console.log(sayHello('Teertha'));
+
+            //Task 3
+            function createSecretHolder(secret){
+                return{
+                    getSecret(){
+                        return secret;
+                    },
+                    setSecret(newSecret){
+                        secret=newSecret;
+                    }
+                };
+            }
+            const res=createSecretHolder('mysecret');
+            console.log(res.getSecret()); 
+            res.setSecret('topSecret');
+            console.log(res.getSecret());
+            console.log(res.secret); // it shows undefined because direct access is impossible
+        </script>
+    </body>
+</html>

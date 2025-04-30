@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            function flexibleFunction(a, b, ...rest) {
+            console.log('a:', a);
+            console.log('b:', b);
+            console.log('rest:',rest);
+            }
+            flexibleFunction(1);
+            flexibleFunction(1, 2);
+            flexibleFunction(1, 2, 3, 4, 5);
+
+            //task 3
+            function sumAll(...rest){
+                let sum=0;
+                for(let i=0;i<rest.length;i++){
+                    sum+=rest[i];
+                }
+                console.log(sum);
+            }
+            sumAll(1,2);
+            sumAll(2,3,4,6);
+            sumAll(10,22);
+
+            //task 4
+            function processArguments(mul,...rest){
+                return mul(...rest);
+
+            }
+            function mul(a,b){
+                return a*b;
+            }
+            console.log(processArguments(mul,20,3));
+            console.log(processArguments(mul,12,9));
+        </script>
+    </body>
+</html>
