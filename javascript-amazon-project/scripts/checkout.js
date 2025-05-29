@@ -1,5 +1,5 @@
 import { loadCart } from "../data/cart.js";
-import { loadProducts } from "../data/products.js";
+import { loadProducts, loadProductsFetch } from "../data/products.js";
 import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 
@@ -7,22 +7,39 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 // import '../data/cart-oop.js';
 // import '../data/backend-practice.js';
 
-Promise.all([
-    new Promise((resolve)=>{
-    loadProducts(()=>{
-        resolve("value 1");
-    });
-    }),
-    new Promise((resolve)=>{
-        loadCart(()=>{
-            resolve();
+async function loadPage(){
+    try{
+
+        // throw 'error'
+
+        await loadProductsFetch();
+        await new Promise((resolve,reject)=>{
+            loadCart(()=>{
+                // reject("ERROR");
+                resolve();
+            });
         });
-    })
-]).then((values)=>{
-    console.log(values);
+
+    }catch(error){
+        console.log(error);
+    }
+    
     renderOrderSummary();
     renderPaymentSummary();
-});
+}
+loadPage();
+// Promise.all([
+//     loadProductsFetch(),
+//     new Promise((resolve)=>{
+//         loadCart(()=>{
+//             resolve();
+//         });
+//     })
+// ]).then((values)=>{
+//     console.log(values);
+//     renderOrderSummary();
+//     renderPaymentSummary();
+// });
 
 // new Promise((resolve)=>{
     
