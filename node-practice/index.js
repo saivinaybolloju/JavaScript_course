@@ -32,10 +32,12 @@ app.put('/contact/',(req,res)=>{
     if (!item) {
         return res.status(400).send({ message: "Name is required" });
     }
-    if(arr.find(item=>item.name===req.params.item)){
-        return res.status(400).send("Already there");
+    const ct=arr.find(item=>item.name==="Java");
+    if(!ct){
+        return res.status(400).send("Notfound");
     }
-    arr.push({id:arr.length+1,item});
+    ct.name=item;
+    //arr.push({id:arr.length+1,item});
     res.send(arr);
 });
 
