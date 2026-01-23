@@ -29,8 +29,5 @@ app.post('/',validateUser,(req,res)=>{
     users.push({id:users.length+1,username:username,password:password});
     res.send(users);
 })
-app.get('/',(req,res)=>{
-    res.send(users);
-})
 
 app.listen(3000);
