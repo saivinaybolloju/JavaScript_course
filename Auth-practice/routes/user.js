@@ -55,8 +55,22 @@ router.post('/signin',validateSignIn,async(req,res)=>{
 });
 
 
-router.get("/profile", validateAuth, (req, res) => {
-  res.json({ message: "Protected data", userId: req.userId });
+router.get("/profile", validateAuth, async (req, res) => {
+    try{
+        const userId=req.userId;
+        const user = await User.findById(userId).select("-password");
+        
+        if (!user) {
+        return res.status(404).json({ msg: "User not found" });
+        }
+
+        res.json({
+        userName: user.userName,
+        mail: user.mail
+        });
+    }catch(err){
+        res.status(500).json({ msg: "Server error" });
+    }
 });
 
 

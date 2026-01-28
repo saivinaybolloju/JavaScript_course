@@ -1,6 +1,8 @@
 const express=require('express')
+const cors=require('cors');
 const app=express();
 app.use(express.json())
+app.use(cors());
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -18,4 +20,4 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
-app.listen(3001,()=>{console.log("Server runnning Successfully")});
+app.listen(5000,()=>{console.log("Server runnning Successfully")});
